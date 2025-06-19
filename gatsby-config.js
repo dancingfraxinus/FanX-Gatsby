@@ -7,46 +7,50 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+const adapter = require("gatsby-adapter-netlify"); //Gatsby Adapter Netlify 
+
 module.exports = {
-  siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false //Gatsby Adapter Netlify 
+  }),
+   siteMetadata: { //FanX Template Site 
+    title: `FanX Comic & Pop Culture Convention`,
+    description: `FanX is a comic and pop culture convention that brings together fans, celebrities, and creators for an unforgettable experience.`,
+    author: `@elizabethmoore`,
+    siteUrl: `https://temp.fanx.com`,
   },
+
   plugins: [
     `gatsby-plugin-image`,
-    {
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-netlify`,
+
+    /* Gatsby Source Filesystem */{
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
+    /* Gatsby Plugin Manifest */{
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`,
       },
-    },
-    {
+    },   
+    /* Gatsby Source Wordpress */{
       resolve: `gatsby-source-wordpress`,
       options: {
-        // the only required plugin option for WordPress is the GraphQL url.
         url:
           process.env.WPGRAPHQL_URL ||
-          `https://wordpresstest.com/graphql`,
-
+          `https://temp.fanx.com/graphql`,
       },
     },
 
