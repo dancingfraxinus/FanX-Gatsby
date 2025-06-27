@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Gatsby cache and build output
+.cache/
+public/
+
+# Environment variables
+.env
+.env.*
+
+# macOS system files
+.DS_Store
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Etc. 
+.vscode/
