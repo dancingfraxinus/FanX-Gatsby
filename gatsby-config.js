@@ -3,6 +3,7 @@
  */
 
 module.exports = {
+  pathPrefix: "/gatsby",
   siteMetadata: {
     title: `Template Comic & Pop Culture Convention `,
     siteUrl: `https://temp.fanx.com`
