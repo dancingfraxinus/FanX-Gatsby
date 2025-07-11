@@ -2,22 +2,49 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 
+const { use } = require('react');
+
 module.exports = {
-  pathPrefix: "/gatsby",
   siteMetadata: {
     title: `Template Comic & Pop Culture Convention `,
-    siteUrl: `https://temp.fanx.com`
-  },
+    siteUrl: `https://template.fanx.com`
+  }, //END siteMetadata
+
   /** Plug-Ins ----------- **/
   plugins: [
-    /* Gatsby Source Wordpress*/ {
+  /* Gatsby Source Wordpress*/ {
     resolve: 'gatsby-source-wordpress',
     options: {
-      "url": "https://temp.fanx.com/graphql",
+      url: process.env.WPGRAPHQL_URL || 
+      'https://temp.fanx.com/graphql',
+      verbose: false, 
+      debug: {
+        preview: false, 
+        graphql: {
+          showQueryVarsOnError: false,
+        }, //END GraphQL 
+      }, //End Debug
+    }, //End Options  
       production: {
-      allow404Images: true
-      },
-    }}, 
+        allow404Images: true,
+        allow401Images: true,
+        }, //END Production 
+      develop: {
+        //ACF
+        useACF: true,
+        useACFfields: true,
+        useACFPostTypes: true,
+        useACFOptions: true,
+        useACFBlocks: true,
+      }, //END Develop
+      html: {
+        createStaticFiles: true,
+        generateWebpImages: true,
+        imageMaxWidth: 900,
+        imageQuality: 90,   
+      }, //END HTML  
+  }, // END Gatsby Source Wordpress <----
+
     "gatsby-plugin-image", 
     "gatsby-plugin-sharp", 
     "gatsby-transformer-sharp", 
@@ -59,9 +86,16 @@ module.exports = {
 
 
   /* Gatsby Plugin Manifest */{
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      "icon": "src/images/icon.png"
-      } 
-  }] /** END Plugins -------- **/
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Tamplete Comic & Pop Culture Convention`,
+        short_name: `#TCC`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+      },
+    }, //END Gatsby Plugin Manifest
+
+  ] /** END Plugins -------- **/
 }; /** END Module Exports  */
