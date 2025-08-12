@@ -12,7 +12,7 @@ LAYOUT:
 - Product Title
 - Product Price 
 - Product Description - Post Content
-- Button: Buy on Growtix (ACF - sitewide info)
+- Button: Buy on LEAP (ACF - sitewide info)
 
 - Ticket Image 
 

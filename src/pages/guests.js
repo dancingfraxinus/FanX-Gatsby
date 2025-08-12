@@ -8,12 +8,9 @@ HEADER:
 - Breadcrumbs (Yoast)
 
 LAYOUT: 
-- Guest Title
-- Fandom (Fandom CT)
-- Subtitle & Subtext (ACF)
-- Guest Description - Post Content
-- Guest Schedule (LEAP API Embed)
 
+Grid 
+Row 1:
 - Featured Image 
 - Buy Tickets Button (ACF - sitewide info)
 - Apperance Days (Days CT)
@@ -30,7 +27,16 @@ LAYOUT:
 - Autograph Xtras/Guest Info (ACF)
     - Coming Soon Mode (triggered by Guest Xperiences Status CT)
     - Sold Out Mode (triggered by Guest Xperiences Status CT)
-- Group Photo Ops (ACF)  
+- Group Photo Ops (Guest Xperiences CT)
+    - IF Group Photo Op Products w/Guest exist (CPT) THEN list them 
+
+Row 2: 
+- Guest Title
+- Fandom (Fandom CT)
+- Subtitle & Subtext (ACF) - when circumstances require it  
+- Guest Bio - Post Content
+- Guest Schedule (LEAP API Embed) 
+
 
 
 */ 
